@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+
+  <!-- Ícone de atalho/aba -->
+  <link rel="icon" href="icons/icon-192.png" sizes="192x192" type="image/png">
+
+  <!-- Manifest PWA -->
+  <link rel="manifest" href="manifest.json">
+
+  <title>Formulário RDO</title>
+
+  <script>
+    // Registra o service worker
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('sw.js')
+        .catch(err => console.error('SW falhou:', err));
+    }
+    // Redireciona imediatamente para o seu Google Forms
+     window.location.replace(
+      'https://docs.google.com/forms/d/e/1FAIpQLSdQL3hqkD-D0SMhgTHH9kWq0g6HYVpkNOQBuobS1R8W4boguQ/viewform?usp=sf_link'
+    ); 
+  </script>
+</head>
+
+<body>
+  <!-- Mensagem curtinha, caso o redirect demore -->
+  <p style="font-family:sans-serif; text-align:center; margin-top:40vh;">
+    Redirecionando para o formulário…<br>
+    Se não acontecer, <a href="https://docs.google.com/forms/d/e/1FAIpQLSdQL3hqkD-D0SMhgTHH9kWq0g6HYVpkNOQBuobS1R8W4boguQ/viewform?usp=sf_link">
+    clique aqui</a>.
+  </p>
+</body>
+</html>
